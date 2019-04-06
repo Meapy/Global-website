@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<title>Calculator</title>
+		<link rel="stylesheet" type="text/css" href="Assets/CSS/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="icon" href="Assets/Images/icon.png">
+		<script language="javascript">
+			// For XML
+			var xmlDoc;
+
+			// For XML
+			function load(url) { 
+				var xmlHTTP;
+				if (window.XMLHttpRequest) {
+					xmlHTTP = new XMLHttpRequest();
+				}
+				else {
+					xmlHTTP = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlHTTP.open("GET", url, false);
+				xmlHTTP.send(null);
+				parser = new DOMParser();
+				xmlDoc = parser.parseFromString(xmlHTTP.responseText, "application/xml");
+			}
+
+			// For XML
+			function getSimpleText(path) {
+				if (window.ActiveXObject) { 
+					var node = xmlDoc.selectSingleNode(path);
+					return node.childNodes[0].nodeValue;
+				}
+				else {
+					var snapshot = xmlDoc.evaluate(path, xmlDoc, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+					return snapshot.snapshotItem(0).textContent;
+				}
+			}
+
+			// For Cookies
+			function createCookie(name, value, expiredays) {
+				var todayDate = new Date();
+				todayDate.setDate(todayDate.getDate() + expiredays);
+				document.cookie = name + "=" + value + "; expires=" + todayDate.toGMTString() + ";"
+			}
+
+			// For Cookies
+			function getCookie(cookieToFind) {
+				var myCookies = document.cookie.length;
+				var individualCookies = document.cookie.split(';');
+				for (var i = 0; i < individualCookies.length; i++) {
+					var oneCookie = individualCookies[i].split("=");
+					var name =  oneCookie[0];
+					name = name.replace(/^\s+|\s+$/g, '') ;
+					var value = oneCookie[1];
+					if(name == cookieToFind) {
+						return value;
+					}
+				}
+				return "";
+			}
+			
+
+			function myFunction() {
+			document.getElementById("myDropdown").classList.toggle("show");
+			}
+			
+			// Close the dropdown if the user clicks outside of it
+			window.onclick = function(e) {
+			if (!e.target.matches('.dropbtn')) {
+			var myDropdown = document.getElementById("myDropdown");
+				if (myDropdown.classList.contains('show')) {
+				myDropdown.classList.remove('show');
+				}
+			}
+			}
+			
+
+			// What do you want to happen when the page loads?
+			function setup() {
+
+			}
+		</script>
+	</head>
+	
+	<body onload="setup()">
+		<header> 
+			<nav id="pages">
+				<ul>
+					<li><a href="index.html">Home Page</a></li>
+					<li><a href="calculator.html">Calculator</a></li> 					
+					<li><a href="explore.html">Converter</a></li> 
+					<li><a href="Standings.html">Currency Exchange</a></li> 
+							
+					<div class="dropdown">
+						<button class="dropbtn" onclick="myFunction()">User Menu<i class="fa fa-caret-down"></i> </button>
+						<div class="dropdown-content" id="myDropdown">
+							<a href="#">Login</a>
+							<a href="#">Register</a>
+							<a href="#">Link 3</a>
+						</div>
+					</div> 
+				</ul>
+			</nav>
+		</header>
+			<h1 id ="index_title">Search</h1>	
+			<form id="index_search" action="/action_page.php">
+				<input id="index_search_bar" type="text" placeholder=". . ." name="search">
+			</form>
+
+		
+		
+		</div>
+		<footer class="footer">
+			<p>Daniel Krasovski &copy; 2018 </p>
+		</footer>
+	</body>
+</html>
