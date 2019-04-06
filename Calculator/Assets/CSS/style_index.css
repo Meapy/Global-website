@@ -90,7 +90,44 @@ li a:hover {
 h1{
 	color: #198e88;
 }
-	
+
+form button {
+    
+    width: 3%;
+    padding: 0;
+    background: grey;
+    color: #20b2aa;
+    font-size: 16px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+    border-radius: 20px;
+}
+input[type=text] {
+    float: center;
+    padding: 0;
+    padding-right: 10px;
+    border: none;
+    font-size: 16px;
+    border-radius: 20px;
+    background: #A4A4A4;
+    color: #20b2aa;
+    border: 1px solid grey;
+}
+form {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	text-align:center;
+	width: 65%;
+	position: absolute;
+
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #20b2aa;
+    opacity: 1; /* Firefox */
+}
+
 #AOTW_title
 {
 	text-align: center;
@@ -100,13 +137,13 @@ h1{
 }
 
 #index_search {
-	margin: 0 auto;
-	height: 2.5em;
+	height: 20%;
+	width: 100%;
+	color: white;
 }
 #index_search_bar{
 	width: 50%;
-	height: 90%;
-	display: block; 
+	height: 20%;
 }
 #index_searchbtn{
 	height: 20%;
@@ -124,94 +161,9 @@ h1{
 #nav_search button{
 	border: 1px solid #20b2aa;
 }
-
-.push
-{
-	height: 4%;
-}
-.push2{
-	height: 8%;
-}
-
-
-#calc-contain{
-    position: relative;
-    width: 60%;
-    border: 2px solid black;
-    border-radius: 10px;
-    margin: 0px auto;
-    padding: 20px 20px 100px 20px;
-}
-#agh{
-    position: relative;
-    float: right;
-    margin-top: 15px;
-}
-#agh p{
-    font-size: 20px;	
-    font-weight: 900;
-}
-
-form#calc {
-	width: 75%;
-	margin: 0 auto;
-	padding-left: 6%;
-	
-}
-input[type=button] {
-    background: lightGray;
-    width: 20%;
-    font-size: 20px;
-    font-weight: 900;
-    border-radius: 7px;
-	margin-left: 1.75%;
-    margin-top: 10px;
-
-}
-input[type=button]:active {
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
-input[type=button]:hover {
-    background-color: #003300;
-    color: white;
-}
-
-input[type = text] {
-    position: relative;
-    width: 90%;
-    margin: 5px auto;
-    padding: 10px;
-    box-shadow: 4px 0px 12px black inset;
-    border-radius: 20px;
-    font-size: 2em;
-    background: #A4A4A4;
-    color: #198e88;
-    border: 1px solid grey;
-    text-align: center;
-}
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 2.5rem;                        /* Footer height */
 }
-button[type = submit] {
-    width: 3%;
-    padding: 0;
-    background: grey;
-    color: #20b2aa;
-    font-size: 16px;
-    border: 1px solid grey;
-    border-left: none; /* Prevent double borders */
-    cursor: pointer;
-    border-radius: 20px;
-}
-
-
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #198e88	;
-    opacity: 1; /* Firefox */
-}	
-

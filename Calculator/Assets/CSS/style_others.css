@@ -2,6 +2,8 @@ body{
 	margin: 0;
 	padding: 0;
 	font-family: 'Josefin Sans', sans-serif;
+	background-color: lightgrey;
+	
 }
 .pages{
 	display: inline-block;
@@ -25,6 +27,9 @@ li a {
 }
 li a:hover {
 	color: #2dd9d0;
+}
+h1{
+	color: #198e88;
 }
 .dropdown {
   float: right;
@@ -146,128 +151,67 @@ form {
 	height: 50px;
 }
 
-
-.textWithImage {
-	margin: 5px;
+form#calc {
+	width: 75%;
+	margin: 0 auto;
+	padding-left: 6%;
+	
 }
-
-
-.textWithImage img {
-	margin: 10px;
-	display: inline-block;
-	border-radius: 50%;
-	width: 32%;
-}
-
-img {
-	float: left;
-	padding-left: 10px;
-	transform: rotate(270deg);
-	border-radius: 50%;
-	width: 40%;
-	height: 40%;
-}
-
-
-.rate {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
-}
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-}
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
-}
-
-.rate:not(:checked) > label:before {
-    content: '★ ';
-}
-.rate > input:checked ~ label {
-    color: #ffc700;    
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
-}
-
-.container {
-	padding-top: 20px;
-	padding-left: 5px;
-	background-color: white; 
-	border: 1px solid black;
-	height: 27%;
+input.calculator[type=button] {
+    background: lightGray;
+    width: 20%;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 7px;
+	margin-left: 1.75%;
+    margin-top: 10px;
 
 }
-
-.othercontainer {
-	text-align: center;
-	float: right;
-	padding-right: 25px;
-	padding-right: 40px;
-	height: 500px;
-	width: 500px;
-	border: 1px solid black;
+input.calculator[type=button]:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+input.calculator[type=button]:hover {
+    background-color: #003300;
+    color: white;
 }
 
-.morecontainers {
-	padding-top: 20px;
+input.calculator[type = text] {
+    position: relative;
+    width: 90%;
+    margin: 5px auto;
+    padding: 10px;
+    box-shadow: 4px 0px 12px black inset;
+    border-radius: 20px;
+    font-size: 2em;
+    background: #A4A4A4;
+    color: #198e88;
+    border: 1px solid grey;
+    text-align: center;
 }
 
-.rating {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
-}
-.rating:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-}
-.rating:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
+input.calculator[type = submit] {
+    width: 3%;
+    padding: 0;
+    background: grey;
+    color: #20b2aa;
+    font-size: 16px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+    border-radius: 20px;
 }
 
-.rating:not(:checked) > label:before {
-    content: '★ ';
-}
-.rating > input:checked ~ label {
-    color: #ffc700;    
-}
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
-    color: #deb217;  
-}
-.rating > input:checked + label:hover,
-.rating > input:checked + label:hover ~ label,
-.rating > input:checked ~ label:hover,
-.rating > input:checked ~ label:hover ~ label,
-.rating > label:hover ~ input:checked ~ label {
-    color: #c59b08;
-}
 
-/*
-	Ratings Stars
-	(with as little code as possible)
-*/
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #198e88	;
+    opacity: 1; /* Firefox */
+}	
 
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;                        /* Footer height */
+}
