@@ -24,6 +24,28 @@
 				parser = new DOMParser();
 				xmlDoc = parser.parseFromString(xmlHTTP.responseText, "application/xml");
 			}
+			
+			var factors1 = new Array(1, 0.01, 0.00001, 0.00000621, 0.3937, 0.0328, 0.01094);
+			var factors2 = new Array(100, 1, 0.001, 0.000621, 39.37, 3.28,  1.094);
+			var factors3 = new Array(100000, 1000, 1, 0.621, 39370, 3280, 1094);
+			var factors4 = new Array(160934, 1609.34, 1.60934, 1, 63360, 5280,1760);
+			var factors5 = new Array(2.54, 0.0254, 0.0000254, 0.0000158, 1, 0.08333, 0.02778);
+			var factors6 = new Array(30.48, 0.3048, 0.0003048, 0.0001896, 12, 1, 0.3333);
+			var factors7 = new Array(91.44, 0.9144, 0.0009144, 0.0005688, 36, 3, 1);
+			var factors = new Array(factors1,factors2,factors3,factors4,factors5,factors6,factors7);
+			
+			function convert_unit()
+			{
+				from_index = document.length_con.from_unit.selectedIndex;
+				to_index = document.length_con.to_unit.selectedIndex;
+				factor = factors[from_index][to_index];
+				document.getElementById("formula").innerHTML = document.length_con.from_unit.options[document.length_con.from_unit.selectedIndex].text + " = " + factor + " " + document.length_con.to_unit.options[document.length_con.to_unit.selectedIndex].text;
+				if(isNaN(document.length_con.from_value.value))
+					document.getElementById("to_value").innerHTML = "Not a valid number.";
+				else
+					document.getElementById("to_value").innerHTML = factor * document.length_con.from_value.value;
+			}
+
 
 			// For XML
 			function getSimpleText(path) {
@@ -60,6 +82,10 @@
 				return "";
 			}
 			
+			function lengthConverter(valNum) {
+			document.getElementById("outputMeters").innerHTML = valNum / 0.0022046;
+			}
+			
 
 			function myFunction() {
 			document.getElementById("myDropdown").classList.toggle("show");
@@ -92,7 +118,7 @@
 					<li><a href="exchange.html">Currency Exchange</a></li>
 					
 					<form id="nav_search" action="/action_page.php">
-						<input type="text" placeholder="  Search.." name="search">
+						<input id="nav_search_bar" type="text" placeholder="  Search.." name="search">
 						<button id="searchbtn" type="submit"><i class="fa fa-search"></i></button>
 					</form>
 					<div class="dropdown">
@@ -107,41 +133,69 @@
 			</nav>
 		</header>
 		
-			<h1 id ="index_title">Calculator</h1>	
+			<h1 id ="index_title">Converter</h1>	
 			<hr>
 			<div class="push"></div>
 			
-		    <form id ="calc" name="calculator">
-            
-            <input class="calculator" type="text" name="answer" placeholder="..." />
-            <br>
-            
-            <input class="calculator" type="button" value=" 1 " onclick="calculator.answer.value += '1'" />
-            <input class="calculator" type="button" value=" 2 " onclick="calculator.answer.value += '2'" />
-            <input class="calculator" type="button" value=" 3 " onclick="calculator.answer.value += '3'" />
-            <input class="calculator" type="button" value=" + " onclick="calculator.answer.value += '+'" />
-            </br>
+			<div id="convert_text">
+				<h2>Length Converter</h2>
+				<p>
+				<b>1</b> select a length unit from the "From" dropdown list and one from the "To" dropdown list.
+				<br /><b>2</b> Enter a numeric value, and click "Convert" button.
+				<p>
 			
-            <input class="calculator" type="button" value=" 4 " onclick="calculator.answer.value += '4'" />
-            <input class="calculator" type="button" value=" 5 " onclick="calculator.answer.value += '5'" />
-            <input class="calculator" type="button" value=" 6 " onclick="calculator.answer.value += '6'" />
-            <input class="calculator" type="button" value=" - " onclick="calculator.answer.value += '-'" />
-            </br>
-          
-            <input class="calculator" type="button" value=" 7 " onclick="calculator.answer.value += '7'" />
-            <input class="calculator" type="button" value=" 8 " onclick="calculator.answer.value += '8'" />
-            <input class="calculator" type="button" value=" 9 " onclick="calculator.answer.value += '9'" />
-            <input class="calculator" type="button" value=" x " onclick="calculator.answer.value += '*'" />
-            </br>
-        
-            <input class="calculator" type="button" value=" c " onclick="calculator.answer.value = ''" />
-            <input class="calculator" type="button" value=" 0 " onclick="calculator.answer.value += '0'" />
-            <input class="calculator" type="button" type="submit" value=" = " onclick="calculator.answer.value = eval(calculator.answer.value)" />
-            <input class="calculator" type="button" value=" / " onclick="calculator.answer.value += '/'" />
-            </br>
+			<form id="length_con">
 	
-          </form>
+			<table>
+			
+				<tr>
+					<td>From </td>
+			
+					<td>
+						<select name=from_unit onChange="convert_unit()";>
+						<option> centimeters
+						<option> meters
+						<option> kilometers
+						<option> miles
+						<option> inches
+						<option> feet
+						<option> yards
+						</select>
+			
+					</td>
+					<td>  To </td>
+					<td>
+						<select name=to_unit onChange="convert_unit()";>
+						<option> centimeters
+						<option> meters
+						<option> kilometers
+						<option> miles
+						<option> inches
+						<option> feet
+						<option> yards
+						</select>
+			
+					</td>
+				</tr>
+				<tr>
+					<td> </td><td colspan="3"><div id="formula">centimeters = 1 centimeters</div></td>
+				</tr>
+			
+				<tr>
+					<td colspan="4"> </td>
+				</tr>
+			
+				<tr>
+					<td>Enter </td>
+					<td><input id="convert_bar" type="text" name="from_value" value="1" size="12" maxlength="12" width="100%"></td>
+					<td> <input type=button value="Convert" onClick="convert_unit()";> </td>
+					<td><div id="to_value">1</div></td>
+					
+				</tr>
+				<tr>
+			</table>
 	
+			</form>
 
 		
 		<footer class="footer">

@@ -44,7 +44,7 @@ h1{
     font-size: 16px;    
     border: none;
     outline: none;
-    color: 20b2aa;
+    color: #20b2aa;
     padding-right: 2%;
     background-color: inherit;
     font-family: inherit;
@@ -96,6 +96,7 @@ form button {
     border-radius: 20px;
 }
 input[type=text] {
+	width: 60%;
     float: center;
     padding: 0;
     padding-right: 10px;
@@ -111,8 +112,7 @@ form {
 	margin: 0;
 	padding: 0;
 	text-align:center;
-	width: 65%;
-	position: absolute;
+	width: 55%;
 
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -208,6 +208,34 @@ input.calculator[type = submit] {
     opacity: 1; /* Firefox */
 }	
 
+h2{
+	color: #198e88;
+	text-align:center;
+}
+form#length_con{
+	width: 100%;
+	margin: 0 auto;
+	padding-left: 40%;
+}
+
+#convert_text{
+	text-align: center;
+}
+#convert_bar{
+	width: 100%;
+}
+
+form[name=converter]{
+	margin: 0 auto;
+	width: 100%;
+}
+table#currencyt{
+	margin: 0 auto;
+	width: 70%;
+}
+td.Currency_name{
+	text-align: right;
+}
 footer {
     position: absolute;
     bottom: 0;

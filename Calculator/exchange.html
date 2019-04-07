@@ -1,9 +1,11 @@
 <html>
 	<head>
-		<title>Calculator</title>
-		<link rel="stylesheet" type="text/css" href="Assets/CSS/style_index.css">
+		<title>It's our Musik</title>
+		<link rel="stylesheet" type="text/css" href="Assets/CSS/style_others.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="icon" href="Assets/Images/icon.png">
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, width=device-width">
 		<script language="javascript">
 			// For XML
 			var xmlDoc;
@@ -22,6 +24,7 @@
 				parser = new DOMParser();
 				xmlDoc = parser.parseFromString(xmlHTTP.responseText, "application/xml");
 			}
+
 
 			// For XML
 			function getSimpleText(path) {
@@ -72,24 +75,49 @@
 				}
 			}
 			}
+
+			
 			
 
-			// What do you want to happen when the page loads?
-			function setup() {
-
+			<!--
+			function euroConverter(){
+			document.converter.dollar.value = document.converter.euro.value * 1.470
+			document.converter.pound.value = document.converter.euro.value * 0.717
+			document.converter.yen.value = document.converter.euro.value * 165.192
 			}
+			function dollarConverter(){
+			document.converter.euro.value = document.converter.dollar.value * 0.680
+			document.converter.pound.value = document.converter.dollar.value * 0.488
+			document.converter.yen.value = document.converter.dollar.value * 112.36
+			}
+			function poundConverter(){
+			document.converter.dollar.value = document.converter.pound.value * 2.049
+			document.converter.euro.value = document.converter.pound.value * 1.394
+			document.converter.yen.value = document.converter.pound.value * 230.27
+			}
+			function yenConverter(){
+			document.converter.dollar.value = document.converter.yen.value * 0.0089
+			document.converter.pound.value = document.converter.yen.value * 0.00434
+			document.converter.euro.value = document.converter.yen.value * 0.00605
+			}
+			//-->
+
 		</script>
 	</head>
 	
-	<body onload="setup()">
+	<body>
 		<header> 
 			<nav id="pages">
 				<ul>
-					<li><a href="index.html">Home Page</a></li>
-					<li><a href="calculator.html">Calculator</a></li> 					
+					<li><a href="index.html">Home Page</a></li> 
+					<li><a href="calculator.html">Calculator</a></li> 
 					<li><a href="convert.html">Converter</a></li> 
-					<li><a href="exchange.html">Currency Exchange</a></li> 
-							
+					<li><a href="exchange.html">Currency Exchange</a></li>
+					
+					<form id="nav_search" action="/action_page.php">
+						<input type="text" placeholder="  Search.." name="search">
+						<button id="searchbtn" type="submit"><i class="fa fa-search"></i></button>
+					</form>
 					<div class="dropdown">
 						<button class="dropbtn" onclick="myFunction()">User Menu<i class="fa fa-caret-down"></i> </button>
 						<div class="dropdown-content" id="myDropdown">
@@ -98,21 +126,36 @@
 						</div>
 					</div> 
 				</ul>
+
 			</nav>
 		</header>
 		
-			<h1 id ="index_title">Calculator, Converter and more!</h1>
+			<h1 id ="index_title">Currency Exchange</h1>	
 			<hr>
+			<div class="push"></div>
 			
-			<h1 id ="index_title">Search</h1>	
-			<form id="index_search" action="/action_page.php">
-				<input id="index_search_bar" type="text" placeholder="  Search.." name="search">
-				<button id="index_searchbtn" type="submit"><i class="fa fa-search"></i></button>
+			<form name="converter">
+				<table id="currencyt" border="0">
+				<tr>
+				<td class="Currency_name" >Euro: </td><td><input type="text" name="euro" onChange="euroConverter()" /></td>
+				</tr>
+				<tr>
+				<td class="Currency_name">US Dollar: </td><td><input type="text" name="dollar" onChange="dollarConverter()" /></td>
+				</tr>
+				<tr>
+				<td class="Currency_name">British Pound:</td><td><input type="text" name="pound" onChange="poundConverter()" /></td>
+				</tr>
+				<tr>
+				<td class="Currency_name">Japanese Yen: </td><td><input type="text" name="yen" onChange="yenConverter()" /></td>
+				</tr>
+				<tr>
+				<td colspan="2" align="center"><input type="button" value="Convert!" /></td>
+				</tr>
+				</table>
 			</form>
+			
+			
 
-		
-		
-		</div>
 		<footer class="footer">
 			<p>Daniel Krasovski &copy; 2018 </p>
 		</footer>
