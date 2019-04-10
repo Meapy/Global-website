@@ -80,21 +80,31 @@
 			document.converter.dollar.value = document.converter.euro.value * 1.12
 			document.converter.pound.value = document.converter.euro.value * 0.86
 			document.converter.yen.value = document.converter.euro.value * 125.50
+			document.converter.yuan.value = document.converter.euro.value * 7.58
 			}
-			function dollarConverter(){
+			function dollarConverter(){	
 			document.converter.euro.value = document.converter.dollar.value * 0.89
 			document.converter.pound.value = document.converter.dollar.value * 0.77
 			document.converter.yen.value = document.converter.dollar.value * 111.72 
+			document.converter.yuan.value = document.converter.dollar.value * 6.72  
 			}
 			function poundConverter(){
 			document.converter.dollar.value = document.converter.pound.value * 1.30
 			document.converter.euro.value = document.converter.pound.value * 1.16 
 			document.converter.yen.value = document.converter.pound.value * 145.67
+			document.converter.yuan.value = document.converter.pound.value * 8.79 
 			}
 			function yenConverter(){
 			document.converter.dollar.value = document.converter.yen.value * 0.0090
 			document.converter.pound.value = document.converter.yen.value * 0.00690
 			document.converter.euro.value = document.converter.yen.value * 0.0080
+			document.converter.yuan.value = document.converter.yen.value * 0.060 
+			}
+			function yuanConverter() {
+			document.converter.dollar.value = document.converter.yuan.value * 0.15 
+			document.converter.pound.value = document.converter.yuan.value * 0.11 
+			document.converter.euro.value = document.converter.yuan.value * 0.13 
+			document.converter.yen.value = document.converter.yuan.value * 16.55 
 			}
 		</script>
 	</head>
@@ -141,6 +151,9 @@
 				</tr>
 				<tr>
 				<td class="Currency_name">Japanese Yen: </td><td><input type="text" name="yen" onChange="yenConverter()" /></td>
+				</tr>
+				<tr>
+				<td class="Currency_name">Chinese Yuan: </td><td><input type="text" name="yuan" onChange="yuanConverter()" /></td>
 				</tr>
 				<tr>
 				<td colspan="2" align="center"><input type="button" value="Convert!" /></td>
